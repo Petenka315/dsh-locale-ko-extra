@@ -1,0 +1,22 @@
+name: verify
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: client.js is rebuilt from base + overrides
+        run: |
+          node tools/build-client.cjs
+          git diff --exit-code client.js
+      - name: behaviour
+        run: node tools/test-client.cjs
+      - name: coverage
+        run: node tools/verify.cjs

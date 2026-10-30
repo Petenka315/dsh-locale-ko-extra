@@ -1,0 +1,47 @@
+{
+  "name": "dsh-locale-ko-extra",
+  "version": "0.2.0",
+  "description": "Korean language pack for the DeepSeek Harness web UI: full dictionaries plus extra strings. Standalone, or layered on top of dsh-locale-ko.",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "author": "Mir Petenka (Petenka315)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Petenka315/dsh-locale-ko-extra.git"
+  },
+  "homepage": "https://github.com/Petenka315/dsh-locale-ko-extra#readme",
+  "bugs": {
+    "url": "https://github.com/Petenka315/dsh-locale-ko-extra/issues"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "dsh",
+    "deepseek-harness",
+    "locale",
+    "i18n",
+    "korean",
+    "한국어"
+  ]
+}
